@@ -1,6 +1,23 @@
 var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';    
 var isi = document.getElementsByTagName("input");
 
+function absen(){
+var isiNama = document.getElementById("namaSiswa");
+var isiNisn = document.getElementById("nisn");
+
+// isiNama.innerHTML = "syuaib";
+fetch(url)
+.then(function(res) {
+return res.text();
+})
+.then(function(respon) {
+let isinama = JSON.parse(respon)[2][0];
+let isinisn = JSON.parse(respon)[2][1];
+isiNama.innerHTML = isinama;
+isiNisn.innerHTML = isinisn;
+})
+}
+
 function inputsiswa(){
    
     let noUrut = isi[0].value;
