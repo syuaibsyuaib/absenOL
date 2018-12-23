@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Input data siswa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .container{
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+        grid-gap: 4vh;
+    }
+</style>
+<script src="script.js"></script>
+</head>
+<body>
+    <!-- no.urt absen, nama siswa, nisn, jenis kelamin -->
+<div class="container">
+<input type="number" placeholder="No. Urut Absen">
+<input type="text" placeholder="Nama Siswa">
+<input type="number" placeholder="NISN">
+<select name="jk">
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+</select>
+<button onclick="inputsiswa()">SIMPAN</button>
+</div>
+</body>
+</html>

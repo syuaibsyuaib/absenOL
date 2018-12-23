@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Kelas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+            .container{
+                display: grid;
+                grid-template-rows: repeat(5, 1fr);
+                grid-gap: 3vh;
+            }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- kelas, nama guru, NIP(optional), tahun ajaran,  -->
+    <div class="container">
+   <input type="text" placeholder="Kelas">
+   <input type="text" placeholder="Nama Guru">
+   <input type="text" placeholder="NIP">
+   <select name="jk">
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+    </select>
+   <input type="text" placeholder="Tahun Ajaran">
+   <button onclick="datakls()">Simpan</button>
+</div>
+</body>
+</html>

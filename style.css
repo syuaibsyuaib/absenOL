@@ -1,0 +1,37 @@
+html, body, .container{
+    height: 90%;
+    margin-top: 5vh;
+}
+
+.container{
+    margin: 2%;
+}
+a{
+    width: 100%;
+    height: 100%;
+background: gray;
+text-align: center;
+color: rgb(255, 255, 255);
+text-decoration: none;
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    font-size: 190%;
+}
+
+select{
+    font-size: 150%;
+}
+span{
+    position: relative;
+    top: 35%;
+    font-size: 150%;
+}
+
+button{
+    background: rgb(115, 201, 216);
+    font-size: 150%;
+    color: rgb(75, 75, 161);
+}
