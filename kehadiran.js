@@ -18,7 +18,9 @@ var i = 1;
       localStorage.setItem('database', respon);
       }
     )
+
     absen();
+    
     function absen() {
       try {
       let ambil = localStorage.getItem('database');
