@@ -1,30 +1,7 @@
 var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';
 var isi = document.getElementsByTagName("input");
 
-var isiNama = document.getElementById("namaSiswa");
-var isiNisn = document.getElementById("nisn");
-var kehadiran = document.getElementsByTagName('a');
-//console.log(kehadiran);
-for (let c = 0; c < kehadiran.length; c++){
-  kehadiran[c].addEventListener('click', absen);
-}
-var i = 1;
-function absen() {
- 
-  // isiNama.innerHTML = "syuaib";
-  fetch(url)
-    .then(function (res) {
-      return res.text();
-    })
-    .then(function (respon) {
-      console.log(JSON.parse(respon)); 
-      let isinama = JSON.parse(respon)[i][1];
-        let isinisn = JSON.parse(respon)[i][2];
-        isiNama.innerHTML = isinama;
-        isiNisn.innerHTML = isinisn;
-        i++;
-    })
-}
+
 
 function inputsiswa() {
 
@@ -69,7 +46,7 @@ function datakls() {
     jk: JK,
     ta: thnAjaran,
     index: ss
-  };
+  }
 
   fetch(url, {
       method: 'POST',
@@ -78,7 +55,8 @@ function datakls() {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(res => res.json())
+    })
+    .then(res => res.json())
     .then(response => console.log('Success:', JSON.stringify(response)))
     .catch(error => console.error('Error:', error));
-}
+  }
