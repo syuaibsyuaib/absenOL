@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 95%;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 5%;
+        }
+
+        select {
+            width: 100%;
+            margin-bottom: 5%;
+        }
+
+        div {
+            margin-bottom: 5%;
+        }
+
+        .container {
+            padding: 0% 4vw;
+            margin-top: 9vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="namaSiswa">nama siswa</div>
+        <div id="nisn">NISN</div>
+        <select></select>
+
+        <button>HADIR</button>
+        <button>SAKIT</button>
+        <button>IZIN</button>
+        <button>ABSTAIN</button>
+
+    </div>
+
+
+
+
+    <script>
+        var url = 'https://script.googleusercontent.com/macros/echo?user_content_key=sWyINGjoQttmn15I3LxyF_6HtH60eY_g7Xcv7HZ-EUAgXcsbtOOqe1w8QPLkPF9gti117bOEZxhbY8rIv-bdsEc_xJtBcyAtm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHQ6uEn5Fxb9yVGFBA8jPZ6AncQ_mT73P396ioXmH6QoOiyWH9UwssC1-4-if9ZjPZKaPkzdqZk4&lib=MruXFPL-DdSNFtcuBRLX8xsgXc4k5ckPl';
+
+        var namaSiswa = document.getElementById('namaSiswa');
+        var nisn = document.getElementById('nisn');
+        var select = document.getElementsByTagName('select')[0];
+        var btn = document.getElementsByTagName('button');
+
+        // ambil data dan simpan dalam local storage
+        fetch(url)
+            .then(function (res) {
+                return res.text()
+            })
+            .then(function (respon) {
+                var database = JSON.stringify(respon);
+                localStorage.setItem('database', respon);
+                db = JSON.parse(localStorage.getItem('database'));
+                tes();
+            })
+
+
+
+        //masukkan data ke dalam select
+        function tes() {
+            for (var i = 1; i < db.length; i++) {
+                var node = document.createElement("option");
+                var textnode = document.createTextNode(db[i][1]);
+                node.appendChild(textnode);
+                select.appendChild(node);
+            }
+        //isi select aktif dimasukkan dalam div namaSiswa
+        select.addEventListener('change', () => namaSiswa.innerHTML = select.value)
+        namaSiswa.innerHTML = select.value;       
+
+        //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
+             
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
