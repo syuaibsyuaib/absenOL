@@ -1,35 +1,55 @@
-var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';
-var isiNama = document.getElementById("namaSiswa");
-var isiNisn = document.getElementById("nisn");
-var kehadiran = document.getElementsByTagName('a');
-//console.log(kehadiran);
-for (let c = 0; c < kehadiran.length; c++) {
-  kehadiran[c].addEventListener('click', absen);
-}
-var i = 1;
+var url = 'https://script.googleusercontent.com/macros/echo?user_content_key=sWyINGjoQttmn15I3LxyF_6HtH60eY_g7Xcv7HZ-EUAgXcsbtOOqe1w8QPLkPF9gti117bOEZxhbY8rIv-bdsEc_xJtBcyAtm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHQ6uEn5Fxb9yVGFBA8jPZ6AncQ_mT73P396ioXmH6QoOiyWH9UwssC1-4-if9ZjPZKaPkzdqZk4&lib=MruXFPL-DdSNFtcuBRLX8xsgXc4k5ckPl';
 
-  // isiNama.innerHTML = "syuaib";
-  fetch(url)
+var namaSiswa = document.getElementById('namaSiswa');
+var nisn = document.getElementById('nisn');
+var select = document.getElementsByTagName('select')[0];
+var btn = document.getElementsByTagName('button');
+
+//jika div namaSiswa hover maka sembuyikan namaSiswa dan tampilkan select
+namaSiswa.addEventListener('mouseover', () => {namaSiswa.style.display = 'none'; select.style.display = 'block'});
+select.addEventListener('mouseout', () => {namaSiswa.style.display = 'block'; select.style.display = 'none'});
+// ambil data dan simpan dalam local storage
+fetch(url)
     .then(function (res) {
-      return res.text();
+        return res.text()
     })
     .then(function (respon) {
-      console.log(respon);
-      localStorage.setItem('database', respon);
-      }
-    )
+        var database = JSON.stringify(respon);
+        localStorage.setItem('database', respon);
+        db = JSON.parse(localStorage.getItem('database'));
+        tes();
+    })
 
-    absen();
-    
-    function absen() {
-      try {
-      let ambil = localStorage.getItem('database');
-        let isinama = JSON.parse(ambil)[i][1];
-        let isinisn = JSON.parse(ambil)[i][2];
-        isiNama.innerHTML = isinama;
-        isiNisn.innerHTML = isinisn;
-        i++;
+
+
+//masukkan data ke dalam select
+
+function tes() {
+    for (var i = 1; i < db.length; i++) {
+        var node = document.createElement("option");
+        var textnode = document.createTextNode(db[i][1]);
+        node.appendChild(textnode);
+        select.appendChild(node);
+    }
+    //isi select aktif dimasukkan dalam div namaSiswa
+    select.addEventListener('change', () => namaSiswa.innerHTML = select.value);
+    namaSiswa.innerHTML = select.value;
+
+    //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
+    for (var j = 0; j < btn.length; j++) {
+        btn[j].addEventListener('click', gantiIsiDiv);
+    }
+
+
+    function gantiIsiDiv() {
+        try {
+            var indexSiswa = db.findIndex(k => k[1] == namaSiswa.innerText); //ambil index nama yg tampil saat ini
+            namaSiswa.innerHTML = db[indexSiswa + 1][1]; //isi nama siswa dengan 
+            select.value = namaSiswa.innerText;
+            console.log(indexSiswa);
         } catch (error) {
-          alert("data sudah habis");
+            alert('data sudah habis');
         }
-      }
+    }
+
+}
