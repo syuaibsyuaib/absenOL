@@ -21,6 +21,7 @@
         select {
             width: 100%;
             margin-bottom: 5%;
+            display: none;
         }
 
         div {
@@ -37,9 +38,8 @@
 <body>
     <div class="container">
         <div id="namaSiswa">nama siswa</div>
-        <div id="nisn">NISN</div>
         <select></select>
-
+        <div id="nisn">NISN</div>
         <button>HADIR</button>
         <button>SAKIT</button>
         <button>IZIN</button>
@@ -58,6 +58,9 @@
         var select = document.getElementsByTagName('select')[0];
         var btn = document.getElementsByTagName('button');
 
+        //jika div namaSiswa hover maka sembuyikan namaSiswa dan tampilkan select
+        namaSiswa.addEventListener('mouseover', () => {namaSiswa.style.display = 'none'; select.style.display = 'block'});
+        select.addEventListener('mouseout', () => {namaSiswa.style.display = 'block'; select.style.display = 'none'});
         // ambil data dan simpan dalam local storage
         fetch(url)
             .then(function (res) {
@@ -73,6 +76,7 @@
 
 
         //masukkan data ke dalam select
+
         function tes() {
             for (var i = 1; i < db.length; i++) {
                 var node = document.createElement("option");
@@ -80,15 +84,30 @@
                 node.appendChild(textnode);
                 select.appendChild(node);
             }
-        //isi select aktif dimasukkan dalam div namaSiswa
-        select.addEventListener('change', () => namaSiswa.innerHTML = select.value)
-        namaSiswa.innerHTML = select.value;       
+            //isi select aktif dimasukkan dalam div namaSiswa
+            select.addEventListener('change', () => namaSiswa.innerHTML = select.value);
+            namaSiswa.innerHTML = select.value;
 
-        //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
-             
+            //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
+
+
+            for (var j = 0; j < btn.length; j++) {
+                btn[j].addEventListener('click', gantiIsiDiv);
+            }
+
+
+            function gantiIsiDiv() {
+                try {
+                    var indexSiswa = db.findIndex(k => k[1] == namaSiswa.innerText); //ambil index nama yg tampil saat ini
+                    namaSiswa.innerHTML = db[indexSiswa + 1][1]; //isi nama siswa dengan 
+                    select.value = namaSiswa.innerText;
+                    console.log(indexSiswa);
+                } catch (error) {
+                    alert('data sudah habis');
+                }
+            }
+
         }
-
-
 
     </script>
 
