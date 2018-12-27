@@ -17,11 +17,14 @@
         top: 2vh;
     }
 
-    select{
+    select {
         display: none;
+        font-size: 170%;
     }
-       </style>
-       
+    option{
+        width: 200px;
+    }
+
     #namaSiswa, #nisn{
         font-size: 160%;
     }
@@ -32,9 +35,10 @@
 <body>
     <!-- tombol : hadir, izin, sakit, abstain -->
 <div class="container">
-<div id=namaSiswa>Nama Siswa</div>
+<div id=namaSiswa><span>Nama Siswa</span></div>
 <select></select>
-<div id=nisn>NISN</div>
+<div id=nisn><span>NISN</span></div>
+<select></select>
 <button>HADIR</button>
 <button>SAKIT</button>
 <button>IZIN</button>

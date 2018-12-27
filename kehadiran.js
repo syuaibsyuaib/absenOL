@@ -1,59 +1,56 @@
-var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';
-var isiNama = document.getElementById("namaSiswa");
-var isiNisn = document.getElementById("nisn");
-var kehadiran = document.getElementsByTagName('a');
-var selectEl = document.getElementsByTagName('select')[0];
-var container = document.getElementsByClassName('container')[0];
+var url = 'https://script.googleusercontent.com/macros/echo?user_content_key=sWyINGjoQttmn15I3LxyF_6HtH60eY_g7Xcv7HZ-EUAgXcsbtOOqe1w8QPLkPF9gti117bOEZxhbY8rIv-bdsEc_xJtBcyAtm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHQ6uEn5Fxb9yVGFBA8jPZ6AncQ_mT73P396ioXmH6QoOiyWH9UwssC1-4-if9ZjPZKaPkzdqZk4&lib=MruXFPL-DdSNFtcuBRLX8xsgXc4k5ckPl';
 
-isiNama.addEventListener('mouseover', namaSiswaHide);
-selectEl.addEventListener('mouseout', namaSiswaOccur);
+var namaSiswa = document.getElementById('namaSiswa');
+var span = document.getElementsByTagName('span');
+var nisn = document.getElementById('nisn');
+var select = document.getElementsByTagName('select')[0];
+var btn = document.getElementsByTagName('button');
 
-function namaSiswaHide() {
-  isiNama.style.display = 'none';
-  selectEl.style.display = 'block';
-}
-
-function namaSiswaOccur() {
-  isiNama.style.display = 'block';
-  selectEl.style.display = 'none';
-}
-
-for (let c = 0; c < kehadiran.length; c++) {
-  kehadiran[c].addEventListener('click', absen);
-}
-var i = 1;
-
-// isiNama.innerHTML = "syuaib";
+//jika div namaSiswa hover maka sembuyikan namaSiswa dan tampilkan select
+namaSiswa.addEventListener('mouseover', () => {namaSiswa.style.display = 'none'; select.style.display = 'block'});
+select.addEventListener('mouseout', () => {namaSiswa.style.display = 'block'; select.style.display = 'none'});
+// ambil data dan simpan dalam local storage
 fetch(url)
-  .then(function (res) {
-    return res.text();
-  }) 
-  .then(function (respon) {
-      localStorage.setItem('database', respon);
-      
-      let db = JSON.parse(localStorage.getItem('database'));
-      for (let j = 1; j < db.length; j++) {
-        let node = document.createElement("option");
-        let isinama = db[j][1];
-        let textnode = document.createTextNode(isinama);
+    .then(function (res) {
+        return res.text()
+    })
+    .then(function (respon) {
+        var database = JSON.stringify(respon);
+        localStorage.setItem('database', respon);
+        db = JSON.parse(localStorage.getItem('database'));
+        tes();
+    })
+
+
+
+//masukkan data ke dalam select
+
+function tes() {
+    for (var i = 1; i < db.length; i++) {
+        var node = document.createElement("option");
+        var textnode = document.createTextNode(db[i][1]);
         node.appendChild(textnode);
-        selectEl.appendChild(node);
-      }
+        select.appendChild(node);
     }
-  )
+    //isi select aktif dimasukkan dalam div namaSiswa
+    select.addEventListener('change', () => span[0].innerHTML = select.value);
+    span[0].innerHTML = select.value;
 
-absen();
+    //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
+    for (var j = 0; j < btn.length; j++) {
+        btn[j].addEventListener('click', gantiIsiDiv);
+    }
 
-function absen() {
-  try {
-    let db = JSON.parse(localStorage.getItem('database'));
-    let isinama = db[i][1];
-    let isinisn = db[i][2];
-    isiNama.innerText = selectEl.value;
-    isiNisn.innerHTML = isinisn;
-    i++;
-    console.log(selectEl.value);
-  } catch (error) {
-    alert("data sudah habis");
-  }
+
+    function gantiIsiDiv() {
+        try {
+            var indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML); //ambil index nama yg tampil saat ini
+            span[0].innerHTML = db[indexSiswa + 1][1]; //isi nama siswa dengan 
+            select.value = span[0].innerHTML;
+            console.log(indexSiswa);
+        } catch (error) {
+            alert('data sudah habis');
+        }
+    }
+
 }
