@@ -35,3 +35,8 @@ button{
     font-size: 150%;
     color: rgb(75, 75, 161);
 }
+
+.selesai{
+    background: goldenrod;
+    color: yellow;
+}
