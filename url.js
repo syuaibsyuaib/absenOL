@@ -44,9 +44,8 @@ function datakls() {
 function kirim(params) {
     fetch(url, {
             method: 'POST',
-            mode: "cors",
+            mode: "no-cors",
             body: JSON.stringify(params),
-            credentials: 'omit',
             headers: {
                 'Content-Type': 'application/json'
             }
