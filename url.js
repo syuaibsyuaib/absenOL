@@ -51,6 +51,13 @@ function kirim(params) {
             }
         })
         .then(res => res.json())
-        .then(response => console.log('Success:' + JSON.stringify(response)))
-        .catch(error => console.log('Error:' + error));
+        .then(function (response) {
+            console.log('sukses :' + response);
+        })
+        .catch(error => console.log('Errorki bos :' + error))
+
+
+    for (let i = 1; i < isi.length; i++) {
+        isi[i].value = "";
+    }
 }
