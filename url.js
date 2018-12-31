@@ -4,9 +4,9 @@ var isi = document.getElementsByTagName("input");
 function inputsiswa() {
     let konfirmasi = confirm('simpanmi kah?');
     if (konfirmasi == true) {
-        let noUrut = isi[0].value;
+        let noUrut = parseInt(isi[0].value);
         let Nama = isi[1].value;
-        let Nisn = isi[2].value;
+        let Nisn = parseInt(isi[2].value);
         let JK = document.getElementsByTagName("select")[0].value;
         let ss = 0;
         let datasiswa = {
@@ -16,7 +16,13 @@ function inputsiswa() {
             jk: JK,
             index: ss
         };
-        kirim(datasiswa);
+        let simpansiswa = [
+            noUrut,
+            Nama,
+            Nisn,
+            JK
+        ];
+        simpan(simpansiswa);
     }
 }
 
@@ -37,6 +43,13 @@ function datakls() {
             ta: thnAjaran,
             index: ss
         };
+        let simpanguru = [
+            Kelas,
+            namaGuru,
+            NIP,
+            JK,
+            thnAjaran
+        ];
         kirim(dataguru);
     }
 }
@@ -60,4 +73,21 @@ function kirim(params) {
     for (let i = 1; i < isi.length; i++) {
         isi[i].value = "";
     }
+}
+
+function simpan(params) {
+    //let dbstr = JSON.stringify(params);
+    let database = JSON.parse(localStorage.getItem('database'));
+    let dbsementara = JSON.parse(localStorage.getItem('dbsementara'));
+    database.push(params);
+
+//jika dbsementara kosong maka ambil database lalu buat dbsementara ditambah params
+if(dbsementara == null) {
+localStorage.setItem('dbsementara', JSON.stringify(database));
+} else {
+//jika sudah ada dbsementara
+//maka dbsementara ditambah params
+dbsementara.push(params);
+localStorage.setItem('dbsementara', JSON.stringify(dbsementara));
+}
 }

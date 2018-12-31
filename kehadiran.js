@@ -45,12 +45,22 @@ function tes() {
     span[0].innerHTML = select.value; 
     span[1].innerHTML = db[indexSiswa][2];
     }
+
     //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
-    for (var j = 0; j < btn.length; j++) {
-        btn[j].addEventListener('click', gantiIsiDiv);
+    for (var j = 0; j < btn.length -1 ; j++) {        
+            btn[j].addEventListener('click', gantiIsiDiv);           
     }
+   
+   //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
+    btn[4].addEventListener('click', () => {
+        let selesai = confirm('simpanmikah?');
+        if (selesai) {
+            alert('absen tersimpan');
+            window.location.href = 'index.html';
+        }
+    });
 
-
+    //ganti isi div sesuai isi select
     function gantiIsiDiv() {
         try {
             let indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML); //ambil index nama yg tampil saat ini
