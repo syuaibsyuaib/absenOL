@@ -7,19 +7,32 @@ var select = document.getElementsByTagName('select')[0];
 var btn = document.getElementsByTagName('button');
 
 //jika div namaSiswa hover maka sembuyikan namaSiswa dan tampilkan select
-namaSiswa.addEventListener('mouseover', () => {namaSiswa.style.display = 'none'; select.style.display = 'block'});
-select.addEventListener('mouseout', () => {namaSiswa.style.display = 'block'; select.style.display = 'none'});
-// ambil data dan simpan dalam local storage
-fetch(url)
-    .then(function (res) {
-        return res.text()
-    })
-    .then(function (respon) {
-        var database = JSON.stringify(respon);
-        localStorage.setItem('database', respon);
-        db = JSON.parse(localStorage.getItem('database'));
-        tes();
-    })
+namaSiswa.addEventListener('mouseover', () => {
+    namaSiswa.style.display = 'none';
+    select.style.display = 'block'
+});
+select.addEventListener('mouseout', () => {
+    namaSiswa.style.display = 'block';
+    select.style.display = 'none'
+});
+// // ambil data dan simpan dalam local storage
+
+db = JSON.parse(localStorage.getItem('dbsementara'));
+if (db !== null) {
+    // fetch(url)
+    //     .then(function (res) {
+    //         return res.text()
+    //     })
+    //     .then(function (respon) {
+    //         var database = JSON.stringify(respon);
+    //         localStorage.setItem('database', respon);
+    //         db = JSON.parse(localStorage.getItem('database'));
+            tes();
+        //})
+        //.catch(error => alert('anda sedang tidak online, aplikasi akan berjalan secara offline tapi pastikan data siswa sudah diinput sebelumnya'))
+} else {
+    alert('sepertinya belum ada data siswa yang diinput');
+}
 
 //masukkan data ke dalam select
 
@@ -31,27 +44,27 @@ function tes() {
         select.appendChild(node);
     }
     //isi select aktif dimasukkan dalam div namaSiswa && NISN
-    
 
-    for(k = 0; k < span.length; k++){
-    select.addEventListener('change', () => {
+
+    for (k = 0; k < span.length; k++) {
+        select.addEventListener('change', () => {
+            let indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML);
+            span[0].innerHTML = select.value;
+            span[1].innerHTML = db[indexSiswa][2];
+        });
+
+        //saat 
         let indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML);
         span[0].innerHTML = select.value;
         span[1].innerHTML = db[indexSiswa][2];
-    });
-
-    //saat 
-    let indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML);
-    span[0].innerHTML = select.value; 
-    span[1].innerHTML = db[indexSiswa][2];
     }
 
     //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
-    for (var j = 0; j < btn.length -1 ; j++) {        
-            btn[j].addEventListener('click', gantiIsiDiv);           
+    for (var j = 0; j < btn.length - 1; j++) {
+        btn[j].addEventListener('click', gantiIsiDiv);
     }
-   
-   //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
+
+    //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
     btn[4].addEventListener('click', () => {
         let selesai = confirm('simpanmikah?');
         if (selesai) {

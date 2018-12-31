@@ -77,17 +77,23 @@ function kirim(params) {
 
 function simpan(params) {
     //let dbstr = JSON.stringify(params);
-    let database = JSON.parse(localStorage.getItem('database'));
-    let dbsementara = JSON.parse(localStorage.getItem('dbsementara'));
-    database.push(params);
+    var database = JSON.parse(localStorage.getItem('database'));
+    if (database == null) {
+        let headtable = [["No. Urut", "Nama Siswa", "NISN", "Jenis Kelamin"]];
+        headtable.push(params);
+        localStorage.setItem('database', JSON.stringify(headtable));
+    } else {
+        let dbsementara = JSON.parse(localStorage.getItem('dbsementara'));
+        database.push(params);
 
-//jika dbsementara kosong maka ambil database lalu buat dbsementara ditambah params
-if(dbsementara == null) {
-localStorage.setItem('dbsementara', JSON.stringify(database));
-} else {
-//jika sudah ada dbsementara
-//maka dbsementara ditambah params
-dbsementara.push(params);
-localStorage.setItem('dbsementara', JSON.stringify(dbsementara));
-}
+        //jika dbsementara kosong maka ambil database lalu buat dbsementara ditambah params
+        if (dbsementara == null) {
+            localStorage.setItem('dbsementara', JSON.stringify(database));
+        } else {
+            //jika sudah ada dbsementara
+            //maka dbsementara ditambah params
+            dbsementara.push(params);
+            localStorage.setItem('dbsementara', JSON.stringify(dbsementara));
+        }
+    }
 }
