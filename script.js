@@ -22,5 +22,4 @@ function tes(){
         window.location.href = 'inputsiswa.html';
 //2.else. copy database jd dbsementara
                } 
-               localStorage.setItem('dbsementara', JSON.stringify(db));
 }
