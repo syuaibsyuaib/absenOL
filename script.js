@@ -19,7 +19,7 @@ function tes(){
 //2. jika database tidak ada maka alert 'input siswa dulu'
     if(db.length < 2){
         alert ('tidak ada data siswa, harus diinput terlebih dahulu');
-        window.location.href = 'inputsiswa.html';
+       // window.location.href = 'inputsiswa.html';
 //2.else. copy database jd dbsementara
                } 
 }
