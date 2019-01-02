@@ -10,9 +10,12 @@ if(dbsementara == null){
         var database = JSON.stringify(respon);
         localStorage.setItem('database', respon);
         db = JSON.parse(localStorage.getItem('database'));
-        //tes();
+        tes();
     })
     .catch(error => alert(error))
+}
+
+function tes(){
 //2. jika database tidak ada maka alert 'input siswa dulu'
     if(db.length < 2){
         alert ('tidak ada data siswa, harus diinput terlebih dahulu');
@@ -20,4 +23,4 @@ if(dbsementara == null){
 //2.else. copy database jd dbsementara
                } 
                localStorage.setItem('dbsementara', JSON.stringify(db));
-    }
+}
