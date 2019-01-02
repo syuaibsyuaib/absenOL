@@ -12,7 +12,7 @@ if(dbsementara == null){
         db = JSON.parse(localStorage.getItem('database'));
         tes();
     })
-    .catch(error => alert(error))
+  //  .catch(error => alert(error))
 }
 
 function tes(){
