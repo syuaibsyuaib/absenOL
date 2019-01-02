@@ -12,13 +12,12 @@ if(dbsementara == null){
         db = JSON.parse(localStorage.getItem('database'));
         //tes();
     })
+    .catch(error => alert(error))
 //2. jika database tidak ada maka alert 'input siswa dulu'
-    if(db == null){
+    if(db.length < 2){
         alert ('tidak ada data siswa, harus diinput terlebih dahulu');
+        window.location.href = 'inputsiswa.html';
 //2.else. copy database jd dbsementara
-               } else {
+               } 
                localStorage.setItem('dbsementara', JSON.stringify(db));
-        }
     }
-
-
