@@ -14,7 +14,7 @@ if(dbsementara == null){
     })
 //2. jika database tidak ada maka alert 'input siswa dulu'
     if(db == null){
-        alert ('tidak ada data siswa, harus diinput terlebih dahulu';
+        alert ('tidak ada data siswa, harus diinput terlebih dahulu');
 //2.else. copy database jd dbsementara
                } else {
                localStorage.setItem('dbsementara', JSON.stringify(db));
