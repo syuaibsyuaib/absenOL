@@ -96,4 +96,7 @@ function simpan(params) {
             localStorage.setItem('dbsementara', JSON.stringify(dbsementara));
         }
     }
+    for (let i = 1; i < isi.length; i++) {
+        isi[i].value = "";
+    }
 }
