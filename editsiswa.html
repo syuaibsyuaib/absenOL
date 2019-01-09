@@ -4,7 +4,7 @@
 </head>
 <body>
 <div id="editsiswa">
-<table style="width:100%">
+<table id="tabelSiswa" style="width:100%">
   <tr>
     <th>No.Urut</th>
     <th>NAMA</th>
@@ -12,10 +12,12 @@
     <th>JK</th>
   </tr>
 </table>
+  <div id="demo"></div>
 </div>
 <script>
 var dbsiswa = localStorage.getItem('dbsementara');
-
+//masukkan 
+  dbsiswa.forEach(item => document.getElementById("demo").innerHTML = item)
 </script>
 </body>
 </html>
