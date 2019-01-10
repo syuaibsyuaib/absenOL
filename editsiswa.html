@@ -45,9 +45,9 @@ var dbsiswa = JSON.parse(localStorage.getItem('dbsementara'));
   function tambahRow() {
   var i, j;
     var table = document.getElementById("tabelSiswa");
-    for(i = 1; i <= dbsiswa.length; i++){
+    for(i = 1; i < dbsiswa.length; i++){
     var row = table.insertRow(-1);  
-        for(j = 0; j <= dbsiswa[i].length; j++){
+        for(j = 0; j < dbsiswa[i].length; j++){
         row.insertCell(j).innerHTML = dbsiswa[i][j];
         }
     }
