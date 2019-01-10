@@ -40,7 +40,7 @@ tr:nth-child(even) {
 var dbsiswa = JSON.parse(localStorage.getItem('dbsementara'));
 //hitung berapa kolom yang dibutuhkan
   var jmlCell = dbsiswa[0].length;
-  
+  tambahRow();
 //insert row pertama di akhir row sebelumnya => buat cell => ambil isi dbsiswa pertama => masukkan isi itu ke dalam cell => ulangi sebanyak jumlah dbsiswa pertama => ulangi lagi untuk row kedua di akhir row sebelumnya => ulangi tambah row sebanyak dbsiswa.length
   function tambahRow() {
   var i, j;
