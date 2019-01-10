@@ -6,6 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 <div id="editsiswa">
@@ -20,9 +37,21 @@
   <div id="demo"></div>
 </div>
 <script>
-var dbsiswa = localStorage.getItem('dbsementara');
-//masukkan 
-  dbsiswa.forEach(item => document.getElementById("demo").innerHTML = item)
+var dbsiswa = JSON.parse(localStorage.getItem('dbsementara'));
+//hitung berapa kolom yang dibutuhkan
+  var jmlCell = dbsiswa[0].length;
+  
+//insert row pertama di akhir row sebelumnya => buat cell => ambil isi dbsiswa pertama => masukkan isi itu ke dalam cell => ulangi sebanyak jumlah dbsiswa pertama => ulangi lagi untuk row kedua di akhir row sebelumnya => ulangi tambah row sebanyak dbsiswa.length
+  function tambahRow() {
+  var i, j;
+    var table = document.getElementById("tabelSiswa");
+    for(i = 1; i <= dbsiswa.length; i++){
+    var row = table.insertRow(-1);  
+        for(j = 0; j <= dbsiswa[i].length; j++){
+        row.insertCell(j).innerHTML = dbsiswa[i][j];
+        }
+    }
+  }
 </script>
 </body>
 </html>
