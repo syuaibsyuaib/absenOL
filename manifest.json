@@ -2,7 +2,7 @@
   "name": "AbsenOL",
   "short_name": "AbsenOL",
   "lang": "id-ID",
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#029246",
   "icons": [
