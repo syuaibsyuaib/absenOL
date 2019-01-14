@@ -7,7 +7,7 @@
   "theme_color": "#029246",
   "icons": [
     {
-      "src": "http://www.cospender.com/images/icons/android-icon-192x192.png",
+      "src": "android-icon-192x192.png",
       "sizes": "192x192",
       "type": "Image/png"
     }
