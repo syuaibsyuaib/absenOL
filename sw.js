@@ -1,3 +1,13 @@
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    new Response('<h1>Hello Indonesia</h1>', {
+      headers: {
+        'Content-Type': 'text/html'
+      }
+    })
+  )
+});
+/*
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
@@ -77,3 +87,4 @@ self.addEventListener('activate', function(event) {
     })
   );
 });
+*/
