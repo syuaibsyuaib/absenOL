@@ -1,3 +1,4 @@
+/*
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     new Response('<h1>Hello Indonesia</h1>', {
@@ -7,17 +8,20 @@ self.addEventListener('fetch', function(event) {
     })
   )
 });
-/*
-var CACHE_NAME = 'my-site-cache-v1';
+*/
+var CACHE_NAME = 'absenol-v1';
 var urlsToCache = [
-  '/',
-  '/style.css',
-  '/absen.html',
-  '/url.js',
-  '/editsiswa.html',
-  '/script.js',
-  '/datakls.html',
-  '/inputsiswa.html'
+  '/absenol/index.html',
+  '/absenol/style.css',
+  '/absenol/absen.html',
+  '/absenol/url.js',
+  '/absenol/editsiswa.html',
+  '/absenol/script.js',
+  '/absenol/datakls.html',
+  '/absenol/inputsiswa.html',
+  '/absenol/manifest.json',
+  '/absenol/android-icon-192x192.png',
+  '/absenol/sw.js'
 ];
 
 self.addEventListener('install', function(event) {
@@ -87,4 +91,4 @@ self.addEventListener('activate', function(event) {
     })
   );
 });
-*/
+
