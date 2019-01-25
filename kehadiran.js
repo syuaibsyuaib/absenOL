@@ -62,7 +62,6 @@ function tes() {
     //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
     for (var j = 0; j < btn.length - 1; j++) {
         btn[j].addEventListener('click', gantiIsiDiv);
-        console.log(j);
     }
 
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
@@ -76,13 +75,12 @@ function tes() {
 
     //ganti isi div sesuai isi select
     function gantiIsiDiv() {
-        console.log(j);
         try {
             let indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML); //ambil index nama yg tampil saat ini
             span[0].innerHTML = db[indexSiswa + 1][1]; //tambah index  nama siswa sama dengan isi select 
             span[1].innerHTML = db[indexSiswa + 1][2]; //tambah index nisn siswa sesuai dengan isi select
             select.value = span[0].innerHTML;
-            //console.log(indexSiswa);
+            console.log(indexSiswa);
         } catch (error) {
             alert('data sudah habis');
         }
