@@ -60,7 +60,7 @@ function tes() {
     }
 
     //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
-    for (var j = 0; j < btn.length - 1; j++) {
+    for (let j = 0; j < btn.length - 1; j++) {
         btn[j].addEventListener('click', gantiIsiDiv);
     }
 
