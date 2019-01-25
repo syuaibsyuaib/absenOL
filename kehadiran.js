@@ -81,7 +81,7 @@ function tes() {
             span[0].innerHTML = db[indexSiswa + 1][1]; //tambah index  nama siswa sama dengan isi select 
             span[1].innerHTML = db[indexSiswa + 1][2]; //tambah index nisn siswa sesuai dengan isi select
             select.value = span[0].innerHTML;
-            console.log(indexSiswa);
+            //console.log(indexSiswa);
         } catch (error) {
             alert('data sudah habis');
         }
