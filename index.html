@@ -51,7 +51,7 @@ const addBtn = document.querySelector('.add-button');
 addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  // mencegah chrome 67 dan versi setelahnya untuk menampilkan prompt secara otomatis karena kita ingin menampilkan tombol install
   e.preventDefault();
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
