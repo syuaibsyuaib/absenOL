@@ -62,7 +62,7 @@ function tes() {
     //jika tombol hadir || izin || sakit || abstain diklik maka ganti isi select dan namaSiswa
     for (var j = 0; j < btn.length - 1; j++) {
         btn[j].addEventListener('click', gantiIsiDiv);
-        btn[j].addEventListener('click' ()=> console.log(j));
+        btn[j].addEventListener('click', ()=> console.log(j));
     }
 
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
