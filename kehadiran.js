@@ -65,7 +65,7 @@ function tes() {
     }
 
      for (let ab = 0; ab < btn.length - 1; ab++) {
-        btn[jab.addEventListener('click', ()=>console.log(btn[ab])); 
+        btn[ab].addEventListener('click', ()=>console.log(btn[ab])); 
     }
 
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
