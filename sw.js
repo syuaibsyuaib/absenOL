@@ -9,7 +9,7 @@ self.addEventListener('fetch', function(event) {
   )
 });
 */
-var CACHE_NAME = 'absenol-v4';
+var CACHE_NAME = 'absenol-v1';
 var urlsToCache = [
   '/absenol/index.html',
   '/absenol/style.css',
