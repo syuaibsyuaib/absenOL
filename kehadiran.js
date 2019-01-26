@@ -72,7 +72,7 @@ function tes() {
             alert('absen tersimpan');
             window.location.href = 'index.html';
         }
-    });
+    })
 
     //ganti isi div sesuai isi select
     function gantiIsiDiv() {
