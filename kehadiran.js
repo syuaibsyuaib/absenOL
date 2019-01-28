@@ -63,7 +63,9 @@ function tes() {
     for (var j = 0; j < btn.length - 1; j++) {
         btn[j].addEventListener('click', gantiIsiDiv); 
     }
-
+}
+     //jika tombol hadir || izin || sakit || abstain diklik maka isi storage "absensi"
+     
      for (let ab = 0; ab < btn.length - 1; ab++) {
         btn[ab].addEventListener('click', ()=>{
             console.log(btn[ab])
@@ -86,6 +88,30 @@ function tes() {
             }); 
     }
 function cek(kehadiran){
+<<<<<<< HEAD
+    let d = new Date();
+    for(xx=0; x < db.length; xx++){
+        if(db[xx].findIndex(l => l == span[0].innerHTML) !== -1){
+            let NoUrt = db[xx][0];
+            let Nama = namaSiswa.innerText;
+            let Nisn = nisn.innerText;
+            let Jk = db[xx][2];
+            let Thn = d.getFullYear();
+            let Bln = d.getMonth()+1;
+            let Tgl = d.getDate();
+            
+            let absensi = [NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl, kehadiran]
+            
+            localStorage.setItem("absen", absensi);
+            let xxx = JSON.parse(localStorage.getItem("absen"));
+            xxx.push([NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl]);
+            localStorage.setItem("absen", JSON.stringify(xxx));
+    }
+
+
+        }
+    }
+=======
     for(xx=0; x < db.length; xx++){
       if(db[xx].findIndex(l=> l == span[0].innerHTML) !== -1){
    let NoUrt = db[xx][0];
@@ -101,6 +127,7 @@ localStorage.setItem("absen", absensi);
 
 }
     
+>>>>>>> dcb90449ce39c033e3df2dc30f3502aad39f94a1
     
     
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
@@ -126,4 +153,3 @@ localStorage.setItem("absen", absensi);
         }
     }
 
-}
