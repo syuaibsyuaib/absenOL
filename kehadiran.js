@@ -72,23 +72,28 @@ function tes() {
             switch(btn[ab]){
                     case 0:
                     var kehadiran = "H";
+                    cek(kehadiran);
                     break;
                     case 1:
                     var kehadiran = "S";
+                    cek(kehadiran);
                     break;
                     case 2:
                     var kehadiran = "I";
+                    cek(kehadiran);
                     break;
                     case 3:
                     var kehadiran = "A";
+                    cek(kehadiran);
                     break;
                     default:
                     var kehadiran = "";
+                    cek(kehadiran);
                     }
             }); 
     }
 function cek(kehadiran){
-<<<<<<< HEAD
+
     let d = new Date();
     for(xx=0; x < db.length; xx++){
         if(db[xx].findIndex(l => l == span[0].innerHTML) !== -1){
@@ -111,7 +116,7 @@ function cek(kehadiran){
 
         }
     }
-=======
+
     for(xx=0; x < db.length; xx++){
       if(db[xx].findIndex(l=> l == span[0].innerHTML) !== -1){
    let NoUrt = db[xx][0];
@@ -126,10 +131,7 @@ function cek(kehadiran){
 localStorage.setItem("absen", absensi);
 
 }
-    
->>>>>>> dcb90449ce39c033e3df2dc30f3502aad39f94a1
-    
-    
+
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
     btn[4].addEventListener('click', () => {
         let selesai = confirm('simpanmikah?');
