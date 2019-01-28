@@ -105,13 +105,16 @@ function cek(kehadiran){
             let Bln = d.getMonth()+1;
             let Tgl = d.getDate();
             
-            let absensi = [NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl, kehadiran]
-            
-            localStorage.setItem("absen", absensi);
+            let absensi = [NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl, kehadiran];
+            let kop = "['No. Urut', 'Nama Siswa', 'NISN', 'JK', 'Tahun', 'Bulan', 'Tanggal', 'Kehadiran']";
+            if(localStorage.key("absen") == null){
+            localStorage.setItem("absen", kop);
+            }else{
             let xxx = JSON.parse(localStorage.getItem("absen"));
             xxx.push([NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl]);
             localStorage.setItem("absen", JSON.stringify(xxx));
-        }
+            }
+         }
      }
   }
 
