@@ -93,9 +93,9 @@ function tes() {
             }); 
     }
 function cek(kehadiran){
-
+    
     let d = new Date();
-    for(xx=0; x < db.length; xx++){
+    for(let xx=0; xx < db.length; xx++){
         if(db[xx].findIndex(l => l == span[0].innerHTML) !== -1){
             let NoUrt = db[xx][0];
             let Nama = namaSiswa.innerText;
@@ -111,27 +111,11 @@ function cek(kehadiran){
             let xxx = JSON.parse(localStorage.getItem("absen"));
             xxx.push([NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl]);
             localStorage.setItem("absen", JSON.stringify(xxx));
-    }
-
-
         }
-    }
+     }
+  }
 
-    for(xx=0; x < db.length; xx++){
-      if(db[xx].findIndex(l=> l == span[0].innerHTML) !== -1){
-   let NoUrt = db[xx][0];
-      let Nama = namaSiswa.innerText;
-      let Nisn = nisn.innerText;
-      let Jk = db[xx][2];
-          let Thn = getFullYear();
-          let Bln = getMonth();
-          let Tgl = getDate();
-    }
-    let absensi = [NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl, kehadiran]
-localStorage.setItem("absen", absensi);
-
-}
-
+  
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
     btn[4].addEventListener('click', () => {
         let selesai = confirm('simpanmikah?');
