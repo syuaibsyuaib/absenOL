@@ -23,7 +23,7 @@ if (db !== null) {
     //     .then(function (res) {
     //         return res.text()
     //     })
-    //     .then(function (respon) {
+    //     .then(function () {
     //         var database = JSON.stringify(respon);
     //         localStorage.setItem('database', respon);
     //         db = JSON.parse(localStorage.getItem('database'));
@@ -70,18 +70,39 @@ function tes() {
             switch(btn[ab]){
                     case 0:
                     var kehadiran = "H";
+                    break;
                     case 1:
                     var kehadiran = "S";
+                    break;
                     case 2:
                     var kehadiran = "I";
+                    break;
                     case 3:
                     var kehadiran = "A";
+                    break;
                     default:
                     var kehadiran = "";
                     }
             }); 
     }
+function cek(kehadiran){
+    for(xx=0; x < db.length; xx++){
+      if(db[xx].findIndex(l=> l == span[0].innerHTML) !== -1){
+   let NoUrt = db[xx][0];
+      let Nama = namaSiswa.innerText;
+      let Nisn = nisn.innerText;
+      let Jk = db[xx][2];
+          let Thn = getFullYear();
+          let Bln = getMonth();
+          let Tgl = getDate();
+    }
+    let absensi = [NoUrt, Nama, Nisn, Jk, Thn, Bln, Tgl, kehadiran]
+localStorage.setItem("absen", absensi);
 
+}
+    
+    
+    
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
     btn[4].addEventListener('click', () => {
         let selesai = confirm('simpanmikah?');
@@ -95,10 +116,11 @@ function tes() {
     function gantiIsiDiv() {
         try {
             let indexSiswa = db.findIndex(k => k[1] == span[0].innerHTML); //ambil index nama yg tampil saat ini
+            console.log(indexSiswa);
             span[0].innerHTML = db[indexSiswa + 1][1]; //tambah index  nama siswa sama dengan isi select 
             span[1].innerHTML = db[indexSiswa + 1][2]; //tambah index nisn siswa sesuai dengan isi select
             select.value = span[0].innerHTML;
-            //console.log(indexSiswa);
+            
         } catch (error) {
             alert('data sudah habis');
         }
