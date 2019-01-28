@@ -65,7 +65,21 @@ function tes() {
     }
 
      for (let ab = 0; ab < btn.length - 1; ab++) {
-        btn[ab].addEventListener('click', ()=>console.log(btn[ab])); 
+        btn[ab].addEventListener('click', ()=>{
+            console.log(btn[ab])
+            switch(btn[ab]){
+                    case 0:
+                    var kehadiran = "H";
+                    case 1:
+                    var kehadiran = "S";
+                    case 2:
+                    var kehadiran = "I";
+                    case 3:
+                    var kehadiran = "A";
+                    default:
+                    var kehadiran = "";
+                    }
+            }); 
     }
 
     //jika tombol selesai ditekan maka akan muncul confirmasi simpan atau tidak?
