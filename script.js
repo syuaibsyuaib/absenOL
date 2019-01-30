@@ -1,7 +1,26 @@
 var url = 'https://script.googleusercontent.com/macros/echo?user_content_key=sWyINGjoQttmn15I3LxyF_6HtH60eY_g7Xcv7HZ-EUAgXcsbtOOqe1w8QPLkPF9gti117bOEZxhbY8rIv-bdsEc_xJtBcyAtm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHQ6uEn5Fxb9yVGFBA8jPZ6AncQ_mT73P396ioXmH6QoOiyWH9UwssC1-4-if9ZjPZKaPkzdqZk4&lib=MruXFPL-DdSNFtcuBRLX8xsgXc4k5ckPl';
-dbsementara = localStorage.getItem('dbsementara');
+dbSiswa = localStorage.getItem('dbSiswa');
 //1. jika dbsementara tidak ada maka download database
-if(dbsementara == null){
+let head = [["No.", "Nama", "NISN", "JK"]];
+if(dbSiswa == null){
+    fetch(url)
+    .then(function (res) {
+        if(res.ok){
+        return res.text();
+            }
+        tes();
+    })
+    .then(function (respon) {
+        let database = respon;
+        let dbGoogle = JSON.parse(database);
+        head.push(dbGoogle);
+    localStorage.setItem("dbSiswa", JSON.stringify(dbGoogle));
+    })
+    function tes(){
+        localStorage.setItem("dbSiswa", JSON.stringify(head));
+        }
+
+/*if(dbSiswa == null){
     fetch(url)
     .then(function (res) {
         return res.text()
@@ -10,7 +29,6 @@ if(dbsementara == null){
         var database = JSON.stringify(respon);
         localStorage.setItem('database', respon);
         db = JSON.parse(localStorage.getItem('database'));
-        tes();
     })
   //  .catch(error => alert(error))
 }
@@ -23,3 +41,4 @@ function tes(){
 //2.else. copy database jd dbsementara
                } 
 }
+*/
