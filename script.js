@@ -20,7 +20,7 @@ var work = {db : function(namaDB, kop){
             localStorage.setItem(namaDB, JSON.stringify(dbGoogle));
             })
             }
-           }
+           }}
            
 //cek atau bikin dbSiswa
 work.db("dbSiswa", headSiswa);
