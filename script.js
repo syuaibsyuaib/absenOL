@@ -4,7 +4,7 @@ var headKelas = [["Kelas", "Nama Guru", "NIP"]];
 var headAbsen = [["No", "Nama Siswa", "NISN", "JK", "Tahun", "Bulan", "Tanggal", "Kehadiran"]];
 
 var work = {db : function(namaDB, kop)
-            if(!localStorage.key(namaDB)){
+            if(namaDB in localStorage == false){
                 fetch(url)
             .then(function (res) {
                 if(res.ok){
