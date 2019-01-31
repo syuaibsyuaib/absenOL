@@ -1,9 +1,9 @@
 var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';
 var isi = document.getElementsByTagName("input");
 var noUrut = document.getElementById("nourut");
-var inputNo = document.getElementById("inputno");
+var selectNo = document.getElementById("selectno");
 var nomorUrut = document.getElementById("nomorurut");
-var dbSiswa = localhost.getItem('dbSiswa');
+var dbSiswa = localStorage.getItem('dbSiswa');
 
 if(dbSiswa.length < 2){
     nomorUrut.innerHTML = 1;
@@ -11,6 +11,10 @@ if(dbSiswa.length < 2){
     isi[0].value = dbSiswa[0][1];
     isi[1].value = dbSiswa[0][2];
 }
+
+nomorUrut.addEventListener('mouseover'function(){
+    selectNo.style.display = 'block';
+})
 /*
 function inputsiswa() {
     let konfirmasi = confirm('simpanmi kah?');
