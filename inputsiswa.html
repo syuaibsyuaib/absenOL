@@ -12,13 +12,16 @@
         grid-template-rows: repeat(6, 1fr);
         grid-gap: 4vh;
     }
-
+        #inputno{
+        display: none;
+        }
 </style>
 </head>
 <body>
     <!-- no.urt absen, nama siswa, nisn, jenis kelamin -->
 <div class="container">
-<input type="number" placeholder="No. Urut Absen">
+    <div id="nomorurut"></div>
+<input id="inputno" type="number" placeholder="No. Urut Absen">
 <input type="text" placeholder="Nama Siswa">
 <input type="number" placeholder="NISN">
 <select name="jk">
