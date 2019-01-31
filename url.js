@@ -1,6 +1,17 @@
 var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';
 var isi = document.getElementsByTagName("input");
+var noUrut = document.getElementById("nourut");
+var inputNo = document.getElementById("inputno");
+var nomorUrut = document.getElementById("nomorurut");
+var dbSiswa = localhost.getItem('dbSiswa');
 
+if(dbSiswa.length < 2){
+    nomorUrut.innerHTML = 1;
+} else {
+    isi[0].value = dbSiswa[0][1];
+    isi[1].value = dbSiswa[0][2];
+}
+/*
 function inputsiswa() {
     let konfirmasi = confirm('simpanmi kah?');
     if (konfirmasi == true) {
@@ -100,3 +111,4 @@ function simpan(params) {
         isi[i].value = "";
     }
 }
+*/
