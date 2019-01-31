@@ -16,7 +16,7 @@ var work = {db : function(namaDB, kop){
             .then(function (respon) {
                 let database = respon;
                 let dbGoogle = JSON.parse(database);
-                head.push(dbGoogle);
+                kop.push(dbGoogle);
             localStorage.setItem(namaDB, JSON.stringify(dbGoogle));
             })
             }
