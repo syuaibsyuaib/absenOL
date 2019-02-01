@@ -12,9 +12,11 @@ if(dbSiswa.length < 2){
     isi[1].value = dbSiswa[0][2];
 }
 
-nomorUrut.addEventListener('mouseover'function(){
+nomorUrut.addEventListener('click', function(){
     selectNo.style.display = 'block';
 })
+//tampilkan isi dbsiswa di 
+
 /*
 function inputsiswa() {
     let konfirmasi = confirm('simpanmi kah?');
