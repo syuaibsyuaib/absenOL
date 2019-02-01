@@ -93,12 +93,12 @@
     <script> 
        function loading(){
          do {
-            if(localStorage == 3){
+            if(localStorage.length == 3){
             document.getElementById("loader").style.display = "none";
             document.getElementById("loade").style.display = "none";
             }
          }
-               while (localStorage < 3);
+               while (localStorage.length < 3);
        }
        
         if ('serviceWorker' in navigator) {
