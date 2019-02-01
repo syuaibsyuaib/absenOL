@@ -3,7 +3,7 @@ var isi = document.getElementsByTagName("input");
 var noUrut = document.getElementById("nourut");
 var selectNo = document.getElementById("selectno");
 var nomorUrut = document.getElementById("nomorurut");
-var dbSiswa = localStorage.getItem('dbSiswa');
+var dbSiswa = JSON.parse(localStorage.getItem('dbSiswa'));
 var jk = document.getElementsByName('jk')[0];
 
 if (dbSiswa.length < 2) {
