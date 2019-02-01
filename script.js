@@ -26,10 +26,12 @@ var work = {db : function(namaDB, kop){
 work.db("dbSiswa", headSiswa);
 work.db("dbKelas", headKelas);
 work.db("dbAbsen", headAbsen);
+window.addEventListener('load', () => {
 if(localStorage.length == 3){
 document.body.style.display = 'block';
-location.reload();
 }
+}
+)
 //1. jika dbsementara tidak ada maka download database
 
 
