@@ -1,8 +1,7 @@
 var url = 'https://script.google.com/macros/s/AKfycbxVHRSVhjlHnC6500QnRrJdTX93XwIyYquvG3HIXf0jJ0LDIyQK/exec';
 var isi = document.getElementsByTagName("input");
-var noUrut = document.getElementById("nourut");
 var selectNo = document.getElementById("selectno");
-var nomorUrut = document.getElementById("nomorurut");
+var nomorUrut = document.getElementById("nomorurut").firstChild;
 var dbSiswa = JSON.parse(localStorage.getItem('dbSiswa'));
 var jk = document.getElementsByName('jk')[0];
 
