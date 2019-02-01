@@ -27,7 +27,8 @@ work.db("dbSiswa", headSiswa);
 work.db("dbKelas", headKelas);
 work.db("dbAbsen", headAbsen);
 if(localStorage.length == 3){
-document.getElementById('outer').style.display = 'block';
+document.body.style.display = 'block';
+location.reload();
 }
 //1. jika dbsementara tidak ada maka download database
 
