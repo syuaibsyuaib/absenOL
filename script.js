@@ -26,6 +26,7 @@ var work = {db : function(namaDB, kop){
 work.db("dbSiswa", headSiswa);
 work.db("dbKelas", headKelas);
 work.db("dbAbsen", headAbsen);
+document.body.style.display = 'block';
 //1. jika dbsementara tidak ada maka download database
 
 
