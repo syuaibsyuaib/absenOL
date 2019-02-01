@@ -17,7 +17,7 @@ if (dbSiswa.length < 2) {
 }
 
 
-nomorUrut.firstChild.addEventListener('mouseover', function(){
+nomorUrut.parentElement.addEventListener('mouseover', function(){
     selectNo.style.display = 'block';
   nomorUrut.style.display = 'none';
 })
