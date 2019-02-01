@@ -4,18 +4,26 @@ var noUrut = document.getElementById("nourut");
 var selectNo = document.getElementById("selectno");
 var nomorUrut = document.getElementById("nomorurut");
 var dbSiswa = localStorage.getItem('dbSiswa');
+var jk = document.getElementsByName('jk')[0];
 
-if(dbSiswa.length < 2){
-    nomorUrut.innerHTML = 1;
+if (dbSiswa.length < 2) {
+  nomorUrut.innerHTML = 1;
 } else {
-    isi[0].value = dbSiswa[0][1];
-    isi[1].value = dbSiswa[0][2];
+  for (let i = 0; i < dbSiswa.length; i++) {
+    if (dbSiswa[i].includes(nomorUrut.innerHTML)) {
+        isi[0].value = dbSiswa[i][1]; 
+        isi[1].value = dbSiswa[i][2];
+    }
+  }
 }
+
 
 nomorUrut.addEventListener('click', function(){
     selectNo.style.display = 'block';
 })
-//tampilkan isi dbsiswa di 
+//tampilkan no urut, nama, nisn, jk
+// 1. ambil dari dbsiswa, klo nda ada kasi kosong saja tapi no urut harus ada nomornya
+//klo panjang dbsiswa 2 maka tambah i dengan angka 1 jadi di nourut menjadi 3 
 
 /*
 function inputsiswa() {
