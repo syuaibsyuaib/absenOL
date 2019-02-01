@@ -23,7 +23,7 @@ nomorUrut.addEventListener('mouseover', function(){
   nomorUrut.style.display = 'none';
 })
 
-nomorUrut.addEventListener('mouseout', function(){
+selectNo.addEventListener('mouseout', function(){
     selectNo.style.display = 'none';
   nomorUrut.style.display = 'block';
 })
