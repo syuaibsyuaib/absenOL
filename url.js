@@ -18,8 +18,14 @@ if (dbSiswa.length < 2) {
 }
 
 
-nomorUrut.addEventListener('click', function(){
+nomorUrut.addEventListener('mouseover', function(){
     selectNo.style.display = 'block';
+  nomorUrut.style.display = 'none';
+})
+
+nomorUrut.addEventListener('mouseout', function(){
+    selectNo.style.display = 'none';
+  nomorUrut.style.display = 'block';
 })
 //tampilkan no urut, nama, nisn, jk
 // 1. ambil dari dbsiswa, klo nda ada kasi kosong saja tapi no urut harus ada nomornya
