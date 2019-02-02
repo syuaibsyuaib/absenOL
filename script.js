@@ -26,14 +26,15 @@ var work = {db : function(namaDB, kop){
 work.db("dbSiswa", headSiswa);
 work.db("dbKelas", headKelas);
 work.db("dbAbsen", headAbsen);
-while(localStorage.length < 3){
+var timer = setInterval(function mytimer(){
             if(localStorage.length === 3){
             document.getElementById("loader").style.display = "none";
             document.getElementById("loade").style.display = "none";
-               break;
+               stopT();
             }
 alert(localStorage.length);
-       }
+   }, 1000);
+function stopT(){clearInterval(timer);}
 //1. jika dbsementara tidak ada maka download database
 
 
