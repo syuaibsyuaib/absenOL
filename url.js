@@ -4,7 +4,7 @@ var selectNo = document.getElementById("selectno");
 var nomorUrut = document.getElementById("nomorurut").firstChild;
 var dbSiswa = JSON.parse(localStorage.getItem('dbSiswa'));
 var jk = document.getElementsByName('jk')[0];
-
+var simpan = document.getElementById('simpan');
 if (dbSiswa.length < 2) {
   nomorUrut.innerHTML = 1;
 } else {
@@ -26,6 +26,10 @@ selectNo.addEventListener('mouseout', function(){
     selectNo.style.display = 'none';
   nomorUrut.parentElement.style.display = 'block';
 })
+
+function save(){
+  
+  }
 //tampilkan no urut, nama, nisn, jk
 // 1. ambil dari dbsiswa, klo nda ada kasi kosong saja tapi no urut harus ada nomornya
 //klo panjang dbsiswa 2 maka tambah i dengan angka 1 jadi di nourut menjadi 3 
