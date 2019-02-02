@@ -32,7 +32,7 @@ var timer = setInterval(function mytimer(){
             document.getElementById("loade").style.display = "none";
                stopT();
             }
-alert(localStorage.length);
+console.log(localStorage.length);
    }, 1000);
 function stopT(){clearInterval(timer);}
 //1. jika dbsementara tidak ada maka download database
