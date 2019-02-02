@@ -33,7 +33,7 @@ var timer = setInterval(function mytimer(){
                stopT();
             }
 console.log(localStorage.length);
-   }, 1000);
+   }, 500);
 function stopT(){clearInterval(timer);}
 //1. jika dbsementara tidak ada maka download database
 
